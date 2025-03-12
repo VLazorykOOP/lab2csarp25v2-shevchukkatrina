@@ -7,7 +7,12 @@ namespace Lab2CSharp
         public static void Run()
         {
             Console.Write("Введіть кількість рядків n: ");
-            int n = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out int n) || n <= 0)
+            {
+                Console.WriteLine("Помилка! Введіть коректне додатнє число.");
+                return;
+            }
+
             int[][] jaggedArray = new int[n][];
 
             Random rand = new Random();
@@ -15,7 +20,12 @@ namespace Lab2CSharp
             for (int i = 0; i < n; i++)
             {
                 Console.Write($"Введіть кількість елементів у рядку {i + 1}: ");
-                int m = int.Parse(Console.ReadLine());
+                if (!int.TryParse(Console.ReadLine(), out int m) || m <= 0)
+                {
+                    Console.WriteLine("Помилка! Введіть коректне додатнє число.");
+                    return;
+                }
+
                 jaggedArray[i] = new int[m];
 
                 for (int j = 0; j < m; j++)

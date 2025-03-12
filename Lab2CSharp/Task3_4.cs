@@ -7,7 +7,12 @@ namespace Lab2CSharp
         public static void Run()
         {
             Console.Write("Введіть розмірність матриці n: ");
-            int n = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out int n) || n <= 0)
+            {
+                Console.WriteLine("Помилка! Введіть коректне додатнє число.");
+                return;
+            }
+
 
             int[,] matrix = new int[n, n];
             Random rand = new Random();

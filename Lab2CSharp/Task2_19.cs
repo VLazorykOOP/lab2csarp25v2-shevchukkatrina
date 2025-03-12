@@ -7,7 +7,11 @@ namespace Lab2CSharp
         public static void Run()
         {
             Console.Write("Введіть розмірність масиву: ");
-            int n = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out int n) || n <= 0)
+            {
+                Console.WriteLine("Помилка! Введіть коректне додатнє число.");
+                return;
+            }
 
             int[] array = new int[n];
             Random rand = new Random();

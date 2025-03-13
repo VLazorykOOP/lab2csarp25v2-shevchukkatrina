@@ -15,14 +15,14 @@ namespace Lab2CSharp
             }
 
             Console.Write("Введіть кількість стовпців для двовимірного масиву (N): ");
-            if (!int.TryParse(Console.ReadLine(), out int m) || m <= 0)
+            if (!int.TryParse(Console.ReadLine(), out int p) || p <= 0)
             {
                 Console.WriteLine("Некоректне введення! Введіть додатнє число.");
                 return;
             }
 
             Console.Write("Введіть кількість рядків для двовимірного масиву (M): ");
-            if (!int.TryParse(Console.ReadLine(), out int p) || p <= 0)
+            if (!int.TryParse(Console.ReadLine(), out int m) || m <= 0)
             {
                 Console.WriteLine("Некоректне введення! Введіть додатнє число.");
                 return;
@@ -55,15 +55,15 @@ namespace Lab2CSharp
             Console.WriteLine();
         }
 
-        static void TwoDimensionalArray(int m, int n)
+        static void TwoDimensionalArray(int n, int m)
         {
-            int[,] array = new int[m, n];
+            int[,] array = new int[n, m];
             Random rand = new Random();
 
             Console.WriteLine("\nЗгенерований масив:");
-            for (int i = 0; i < m; i++)
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < n; j++)
+                for (int j = 0; j < m; j++)
                 {
                     array[i, j] = rand.Next(-100, 100);
                     Console.Write(array[i, j].ToString().PadLeft(5) + " ");
@@ -72,9 +72,9 @@ namespace Lab2CSharp
             }
 
             Console.WriteLine("\nЕлементи з парними індексами:");
-            for (int i = 0; i < m; i++)
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < n; j++)
+                for (int j = 0; j < m; j++)
                 {
                     if ((i + j) % 2 == 0) 
                     {
